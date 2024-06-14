@@ -8,6 +8,8 @@ import { revalidatePath } from "next/cache"
 export const GET = async (req: NextRequest) => {
   const { searchParams } = new URL(req.url)
 
+  console.log("GET PSTST1")
+
   const isPopular: string = searchParams.get("popular") || ""
   const page: number = parseInt(searchParams.get("page") || "1")
   const cat: string = searchParams.get("cat") || ""
@@ -21,12 +23,15 @@ export const GET = async (req: NextRequest) => {
       : ({ createdAt: "desc" } as const),
   }
   try {
+    console.log("GET PSTST2")
     const [posts, count] = await prisma.$transaction([
       prisma.post.findMany(query),
       prisma.post.count({ where: query.where }),
     ])
+    console.log("GET PSTST3")
     return new NextResponse(JSON.stringify({ posts, count }), { status: 200 })
   } catch (error) {
+    console.log("GET PSTST4", error)
     console.log(error)
     return new NextResponse(
       JSON.stringify({ message: "Something went wrong" }),
