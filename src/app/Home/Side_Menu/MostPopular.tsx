@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Post } from "@/types/types"
 const getData = async () => {
-  const res = await fetch(`http://localhost:3000/api/posts?popular=true`)
+  const res = await fetch(`/api/posts?popular=true`)
   if (!res.ok) {
     throw new Error("Failed")
   }

@@ -60,7 +60,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
   }, [loadedComments.length])
 
   const { mutate, isLoading } = useSWR(
-    `http://localhost:3000/api/comments?postSlug=${postSlug}&limit=${limit || NUMBER_PER_ATTEMPT}`,
+    `/api/comments?postSlug=${postSlug}&limit=${limit || NUMBER_PER_ATTEMPT}`,
     fetcher,
     {
       onSuccess: (data) => {
@@ -76,7 +76,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
     const newPage = currentPage + 1
 
     const moreComments = await fetcher(
-      `http://localhost:3000/api/comments?postSlug=${postSlug}&page=${newPage}`,
+      `/api/comments?postSlug=${postSlug}&page=${newPage}`,
     )
 
     setLoadedComments((prevComments) => [

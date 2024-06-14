@@ -3,12 +3,9 @@ import Pagination from "../Pagination/Pagination"
 import { Post } from "@/types/types"
 
 const getData = async (page: number, cat: string) => {
-  const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
-    {
-      cache: "no-store",
-    },
-  )
+  const res = await fetch(`/api/posts?page=${page}&cat=${cat || ""}`, {
+    cache: "no-store",
+  })
 
   if (!res.ok) {
     throw new Error("Failed")
