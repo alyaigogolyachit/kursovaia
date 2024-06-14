@@ -16,13 +16,13 @@ async function MostPopular() {
   return (
     <>
       <div className="flex gap-6 justify-between ">
-        <h2 className="theme  text-red-600 font-bold mb-6 ">What's hot</h2>
+        <h2 className="theme  text-red-600 font-bold mb-6 ">What&apos;s hot</h2>
 
         <h2 className=" hidden theme text-red-600 font-bold   mb-6 2xl:block">
-          What's hot
+          What&apos;s hot
         </h2>
         <h2 className=" hidden theme text-red-600 font-bold   mb-6 xl:block">
-          What's hot
+          What&apos;s hot
         </h2>
       </div>
       <div>

@@ -8,8 +8,8 @@ const ComingSoon = () => {
           Coming Soon...
         </h1>
         <p className="text-lg text-gray-600">
-          We're working hard to bring this app more amazing peculiarities. Stay
-          tuned!
+          We&apos;re working hard to bring this app more amazing peculiarities.
+          Stay tuned!
         </p>
       </div>
     </div>

@@ -19,6 +19,7 @@ interface ThoughtAreaProps {
 const CustomReactQuill = forwardRef<ReactQuill, ReactQuillProps>(
   (props, ref) => <ReactQuill ref={ref} {...props} />,
 )
+CustomReactQuill.displayName = "CustomReactQuill"
 
 function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
   const [content, setContent] = useState("")
