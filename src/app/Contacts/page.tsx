@@ -38,7 +38,7 @@ function Contacts() {
       )
 
       if (response.ok) {
-        toast.success("send")
+        toast.success("Thanks a lot for sharing your ideas with us!")
         reset()
       } else if (response.status === 422) {
         const errors = await response.json()
@@ -49,7 +49,7 @@ function Contacts() {
       }
     } catch (error: any) {
       console.error(error)
-      toast.error("Not send")
+      toast.error("Your message has not been sent")
     } finally {
       setIsLoading(false)
     }
@@ -77,7 +77,6 @@ function Contacts() {
               errors={errors}
               disabled={isLoading}
               maxLength={30}
-              className=""
             />
 
             <Input
