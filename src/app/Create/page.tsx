@@ -103,11 +103,11 @@ const WritePage = () => {
 
       {isLoading && <FullSpinner />}
 
-      {/* <ThoughtArea
+      <ThoughtArea
         isLoading={isLoading}
         setLoading={setIsLoading}
         image={media}
-      /> */}
+      />
     </div>
   )
 }

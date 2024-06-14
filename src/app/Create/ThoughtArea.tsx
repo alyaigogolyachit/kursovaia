@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, forwardRef } from "react"
 import { generateSlug } from "@/libs/generateSlug"
-import ReactQuill, { Quill, ReactQuillProps } from "react-quill"
+// import ReactQuill, { Quill, ReactQuillProps } from "react-quill"
 import "react-quill/dist/quill.snow.css"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
@@ -10,21 +10,24 @@ import Textarea from "../components/Textarea/Textarea"
 import postParse from "@/libs/parsing"
 import { FaPlus } from "react-icons/fa6"
 
+import dynamic from "next/dynamic"
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false })
+
 interface ThoughtAreaProps {
   isLoading: boolean
   setLoading: (loading: boolean) => void
   image: string
 }
 
-const CustomReactQuill = forwardRef<ReactQuill, ReactQuillProps>(
-  (props, ref) => <ReactQuill ref={ref} {...props} />,
-)
+const CustomReactQuill = forwardRef<any, any>((props, ref) => (
+  <ReactQuill ref={ref} {...props} />
+))
 CustomReactQuill.displayName = "CustomReactQuill"
 
 function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
   const [content, setContent] = useState("")
   const router = useRouter()
-  const quillRef = useRef<ReactQuill | null>(null)
+  const quillRef = useRef<any | null>(null)
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
