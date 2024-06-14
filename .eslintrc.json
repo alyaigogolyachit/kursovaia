@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-console": "warn",
+    "prefer-const": "error",
+    "indent": ["warn", 2],
+    "semi": "off",
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": false
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  }
 }

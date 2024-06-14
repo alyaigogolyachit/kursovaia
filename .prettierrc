@@ -1,0 +1,10 @@
+{
+  "semi": false,
+  "importOrder": [
+    "builtin",
+    "external",
+    "internal",
+    ["parent", "sibling", "index"]
+  ],
+  "importOrderSeparation": true
+}
