@@ -3,7 +3,7 @@ import Button from "@/reusable-components/Button"
 import { Post } from "@/types/types"
 import Link from "next/link"
 const getFeaturedPost = async () => {
-  const res = await fetch("/api/posts/featured")
+  const res = await fetch(`${process.env.NEXT_URL}/api/posts/featured`)
 
   if (!res.ok) {
     throw new Error("Failed")

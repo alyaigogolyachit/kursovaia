@@ -7,7 +7,7 @@ import FullSpinner from "@/reusable-components/FullSpinner"
 import { Suspense } from "react"
 
 const fetchPosts = async (url: string) => {
-  const response = await fetch(url)
+  const response = await fetch(`${process.env.NEXT_URL}${url}`)
   if (!response.ok) {
     throw new Error("Failed to fetch posts")
   }
@@ -21,7 +21,7 @@ const SearchComponent = () => {
   const encodedSearchQuery = encodeURI(searchQuery || "")
 
   const { data, isLoading, error } = useSWR(
-    `/api/search?q=${encodedSearchQuery}`,
+    `${process.env.NEXT_URL}/api/search?q=${encodedSearchQuery}`,
     fetchPosts,
   )
   if (isLoading) {

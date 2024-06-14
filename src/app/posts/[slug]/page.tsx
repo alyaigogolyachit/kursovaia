@@ -9,7 +9,7 @@ type Params = {
 }
 
 const getData = async (slug: string) => {
-  const res = await fetch(`/api/posts/${slug}`, {
+  const res = await fetch(`${process.env.NEXT_URL}/api/posts/${slug}`, {
     cache: "no-store",
   })
 

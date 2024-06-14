@@ -24,7 +24,7 @@ function CategorySlider() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/api/categories")
+        const res = await fetch(`${process.env.NEXT_URL}/api/categories`)
         const result: Category[] = await res.json()
         setData(result)
       } catch (error) {
