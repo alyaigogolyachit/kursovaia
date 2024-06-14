@@ -11,13 +11,15 @@ export default function RecentPost({ item }: RecentPostProps) {
   return (
     <div className="flex flex-col md:flex-row gap-5 lg:gap-12  mb-12">
       <div className=" md:flex-1 w-9/12 h-60 relative lg:h-80 ">
-        <Image
-          src={item.image ? item.image : "/no_image.png"}
-          alt=""
-          fill
-          sizes="(max-width: 768px) 100vw"
-          className="defImg"
-        />
+        <Link href={`/posts/${item.slug}`}>
+          <Image
+            src={item.image ? item.image : "/no_image.png"}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw"
+            className="defImg"
+          />
+        </Link>
       </div>
       <div className="flex md:flex-1 flex-col gap-3 lg:gap-7">
         <div className="flex items-center gap-2 text-sm">

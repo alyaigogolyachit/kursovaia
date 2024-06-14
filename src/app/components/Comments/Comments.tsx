@@ -60,7 +60,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
   }, [loadedComments.length])
 
   const { mutate, isLoading } = useSWR(
-    `${process.env.NEXT_URL}/api/comments?postSlug=${postSlug}&limit=${limit || NUMBER_PER_ATTEMPT}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/comments?postSlug=${postSlug}&limit=${limit || NUMBER_PER_ATTEMPT}`,
     fetcher,
     {
       onSuccess: (data) => {
@@ -100,7 +100,7 @@ const Comments = ({ postSlug }: { postSlug: string }) => {
     if (content) {
       setIsFetching(true)
       setContent("")
-      await fetch(`${process.env.NEXT_URL}/api/comments`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/comments`, {
         method: "POST",
         body: JSON.stringify({ content, postSlug }),
       })

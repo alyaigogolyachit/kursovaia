@@ -4,7 +4,7 @@ import { Post } from "@/types/types"
 
 const getData = async (page: number, cat: string) => {
   const res = await fetch(
-    `${process.env.NEXT_URL}/api/posts?page=${page}&cat=${cat || ""}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=${page}&cat=${cat || ""}`,
     {
       cache: "no-store",
     },

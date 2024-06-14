@@ -9,9 +9,12 @@ type Params = {
 }
 
 const getData = async (slug: string) => {
-  const res = await fetch(`${process.env.NEXT_URL}/api/posts/${slug}`, {
-    cache: "no-store",
-  })
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${slug}`,
+    {
+      cache: "no-store",
+    },
+  )
 
   if (!res.ok) {
     throw new Error("Failed")

@@ -79,6 +79,6 @@ a {
     @apply block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300;
   }
   .defImg {
-    @apply object-fill outline-double outline-cyan-500 outline-offset-1 shadow-lg shadow-indigo-900;
+    @apply object-fill outline-double outline-cyan-500 outline-offset-1 shadow-lg shadow-indigo-900 hover:outline-offset-4;
   }
 }

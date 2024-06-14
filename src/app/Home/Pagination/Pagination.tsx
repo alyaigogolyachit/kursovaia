@@ -24,7 +24,7 @@ function Pagination({ page, hasPrev, hasNext }: PaginationProps) {
     <div className="flex justify-between sm:mx-4">
       <Button
         className={clsx(
-          "w-24 p-2 lg:p-3 rounded-xl bg-gradient-to-tr from-cyan-300  to-sky-600 shadow-lg shadow-blue-500/50 ",
+          "w-24 p-2 lg:p-3 rounded-xl bg-gradient-to-tr from-cyan-300  to-sky-600 shadow-lg shadow-blue-500/50  focus:ring focus:ring-inset focus:ring-cyan-600",
           !!hasPrev && "hover:opacity-85",
         )}
         disabled={!hasPrev}
@@ -34,7 +34,7 @@ function Pagination({ page, hasPrev, hasNext }: PaginationProps) {
       </Button>
       <Button
         className={clsx(
-          "w-24 p-2 lg:p-3 rounded-xl bg-gradient-to-tr from-cyan-300  to-sky-600 shadow-lg  shadow-blue-500/50",
+          "w-24 p-2 lg:p-3 rounded-xl bg-gradient-to-tr from-cyan-300  to-sky-600 shadow-lg  shadow-blue-500/50 focus:ring focus:ring-inset focus:ring-cyan-600",
           !!hasNext && "hover:opacity-85",
         )}
         disabled={!hasNext}

@@ -114,7 +114,7 @@ function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
       image: image || null,
     }
     try {
-      const res = await fetch(`${process.env.NEXT_URL}/api/posts`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(postData),
