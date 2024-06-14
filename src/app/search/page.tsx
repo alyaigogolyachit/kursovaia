@@ -4,6 +4,7 @@ import useSWR from "swr"
 import FoundPost from "./FoundPost"
 import { Post } from "@/types/types"
 import FullSpinner from "@/reusable-components/FullSpinner"
+import { Suspense } from "react"
 
 const fetchPosts = async (url: string) => {
   const response = await fetch(url)
@@ -13,7 +14,7 @@ const fetchPosts = async (url: string) => {
   return response.json()
 }
 
-const SearchPage = () => {
+const SearchComponent = () => {
   const search = useSearchParams()
   const searchQuery = search.get("q")
 
@@ -48,6 +49,14 @@ const SearchPage = () => {
         <FoundPost post={post} key={post.id} />
       ))}
     </div>
+  )
+}
+
+const SearchPage = () => {
+  return (
+    <Suspense>
+      <SearchComponent />
+    </Suspense>
   )
 }
 

@@ -6,6 +6,7 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Category } from "@/types/types"
 import { useEffect, useState } from "react"
+import Spinner from "@/reusable-components/Spinner"
 // const data = [
 //   { id: 0, image: "/categories/art.jfif", title: "Art" },
 //   { id: 1, image: "/categories/litra.jfif", title: "Literature" },
@@ -82,7 +83,7 @@ function CategorySlider() {
     },
   })
   if (!data || data.length === 0) {
-    return null
+    return <Spinner isLoading={true} />
   }
   return (
     <div className=" w-full overflow-hidden">

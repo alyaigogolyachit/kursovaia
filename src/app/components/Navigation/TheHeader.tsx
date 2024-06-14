@@ -6,7 +6,7 @@ import PoppingMenu from "./PoppingMenu"
 import LogoutModal from "./Logout"
 import { useSession } from "next-auth/react"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 
 type NavItemsProps = {
   label: string
@@ -81,7 +81,9 @@ const TheHeader = () => {
         </div>
         <div className=" w-full md:flex justify-start  lg:flex-1 text-sm lg:text-base gap-4 lg:gap-8">
           <div className="flex h-6/6 ml-0 md:basis-5/6 ">
-            <SearchBar />
+            <Suspense>
+              <SearchBar />
+            </Suspense>
           </div>
           <div className="hidden md:flex gap-0 lg:gap-4 ">
             {status === "unauthenticated" ? (
