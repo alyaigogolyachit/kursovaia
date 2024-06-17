@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from "react"
+import React, { useState, useEffect, forwardRef } from "react"
 import { generateSlug } from "@/libs/generateSlug"
 // import ReactQuill, { Quill, ReactQuillProps } from "react-quill"
 import "react-quill/dist/quill.snow.css"
@@ -19,15 +19,13 @@ interface ThoughtAreaProps {
   image: string
 }
 
-const CustomReactQuill = forwardRef<any, any>((props, ref) => (
-  <ReactQuill ref={ref} {...props} />
-))
-CustomReactQuill.displayName = "CustomReactQuill"
+// const CustomReactQuill = (props) => <ReactQuill {...props} />
+
+// CustomReactQuill.displayName = "CustomReactQuill"
 
 function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
   const [content, setContent] = useState("")
   const router = useRouter()
-  const quillRef = useRef<any | null>(null)
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -93,24 +91,14 @@ function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setLoading(true)
-
-    const editor = quillRef.current?.getEditor()
-
-    const text = editor?.getText()
-    const textLength = text?.trim().length
-    if (!textLength) {
-      toast.error("Your blog is blanked")
-      setLoading(false)
-      return false
-    }
-    const contentHTML = editor?.root.innerHTML
+    console.log(content)
 
     const postData = {
       title: data.title,
       description: data.description,
       slug: data.slug,
       categorySlug: data.category,
-      body: contentHTML,
+      body: content,
       image: image || null,
     }
     try {
@@ -245,8 +233,7 @@ function ThoughtArea({ setLoading, isLoading, image }: ThoughtAreaProps) {
                 >
                   Blog Content
                 </label>
-                <CustomReactQuill
-                  ref={quillRef}
+                <ReactQuill
                   theme="snow"
                   value={content}
                   onChange={setContent}
